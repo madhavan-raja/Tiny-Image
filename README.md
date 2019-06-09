@@ -1,5 +1,5 @@
 # Tiny Image
-An application that stores Black and White images efficiently.
+An application that stores B&W images efficiently - the file will occupy (width x height) bits of storage space. 
 
 The Title Bar shows the resolution of the image (512 x 512 by default) and the sizes of the writer and the eraser respectively.  
 The image will be saved as myImage.tmg by default.
