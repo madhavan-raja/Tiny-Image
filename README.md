@@ -7,7 +7,7 @@ The image will be saved as myImage.tmg by default.
 ```
 [S] - Save
 [L] - Load
-[X - Invert Colors
+[X] - Invert Colors
 [C] - Clear
 [+] - Increase Eraser Size
 [-] - Decrease Eraser Size
