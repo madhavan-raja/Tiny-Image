@@ -121,33 +121,39 @@ void saveTinyImage()
 
 void loadTinyImage()
 {
-  byte[] bytes = loadBytes(FILE);
-  
-  loadPixels();
-  
-  if (bytes.length == height * width / 8)
-  {  
-    for (int i = 0; i < height * width / 8; i++)
-    {
-      int current = bytes[i];
-      
-      if (current < 0)
-        current += 256;
-      
-      for (int j = 7; j >= 0; j--)
+  try
+  {
+    byte[] bytes = loadBytes(FILE);
+    
+    loadPixels();
+    
+    if (bytes.length == height * width / 8)
+    {  
+      for (int i = 0; i < height * width / 8; i++)
       {
-        if (current < pow(2, j))
-          pixels[i * 8 + j] = color(255);
-        else
+        int current = bytes[i];
+        
+        if (current < 0)
+          current += 256;
+        
+        for (int j = 7; j >= 0; j--)
         {
-          pixels[i * 8 + j] = color(0);
-          current -= pow(2, j);
+          if (current < pow(2, j))
+            pixels[i * 8 + j] = color(255);
+          else
+          {
+            pixels[i * 8 + j] = color(0);
+            current -= pow(2, j);
+          }
         }
       }
     }
+    
+    updatePixels();
   }
-  
-  updatePixels();
+  catch(Exception e)
+  {
+  }
 }
 
 void invertScreen()
