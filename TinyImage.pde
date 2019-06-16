@@ -99,6 +99,8 @@ void keyPressed()
 
 void saveTinyImage()
 {
+  println("Saving image...");
+  
   byte[] bytes = new byte[height * width / 8];
   
   loadPixels();
@@ -117,10 +119,14 @@ void saveTinyImage()
   updatePixels();
   
   saveBytes(FILE, bytes);
+  
+  println("Image saved.");
 }
 
 void loadTinyImage()
 {
+  println("Loading image...");
+  
   try
   {
     byte[] bytes = loadBytes(FILE);
@@ -150,9 +156,12 @@ void loadTinyImage()
     }
     
     updatePixels();
+    
+    println("Image loaded.");
   }
   catch(Exception e)
   {
+    println("Save file does not exist.");
   }
 }
 
@@ -169,9 +178,13 @@ void invertScreen()
   }
   
   updatePixels();
+  
+  println("Image inverted.");
 }
 
 void clearScreen()
 {
   background(255);
+  
+  println("Image cleared.");
 }
